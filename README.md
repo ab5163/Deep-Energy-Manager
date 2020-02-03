@@ -13,6 +13,6 @@ Deep Energy Manager is a model-free reinforcement learning (RL) agent for optima
 
 ## Ackownledgements
 DQN agent is inspired by 
-..*@germain-hug
-..*@Khev
-..*@keon
+* @germain-hug
+* @Khev
+* @keon
