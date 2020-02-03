@@ -1,1 +1,1 @@
-# Deep-RL-thermostat
+# Deep-Energy-Manager
