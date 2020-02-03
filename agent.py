@@ -1,7 +1,7 @@
 import numpy as np
 import random
 from keras.models import Sequential
-from keras.layers import Dense, Dropout
+from keras.layers import Dense
 from keras.optimizers import Adam
 from collections import deque
 import tensorflow as tf
@@ -26,7 +26,6 @@ class Agent:
         self.l1_units = l1_units
         self.l2_units = l2_units
         self.l3_units = l3_units
-        #self.reset_weights = reset_weights
 
         self.model, self.init_weights = self.create_model()
         self.target_model, self.target_init_weights = self.create_model()
@@ -61,10 +60,10 @@ class Agent:
             states.append(state[0])
             target = self.target_model.predict(state)
             if done:
-                target[0][action] = reward/100
+                target[0][action] = reward
             else:
                 Q_future = max(self.target_model.predict(new_state)[0])
-                target[0][action] = np.clip(reward/100 + Q_future * self.gamma, -1, 0)
+                target[0][action] = np.clip(reward + Q_future * self.gamma, -1, 0)
             targets.append(target[0])
         states = np.array(states)
         targets = np.array(targets)
