@@ -12,7 +12,7 @@ def huber_loss(y_true, y_pred):
 
 class Agent:
     
-    def __init__(self, input_dim, output_dim, lr, gamma, tau, buffer_size, l1_units, l2_units, l3_units, learning_start):
+    def __init__(self, input_dim, output_dim, lr, gamma, tau, buffer_size, l1_units, l2_units, l3_units, rnd_seed):
 
         self.buffer_size = buffer_size
         self.memory = Memory(self.buffer_size)
@@ -21,15 +21,14 @@ class Agent:
         self.actions = range(output_dim)  
         self.gamma = gamma
         self.epsilon = 1.0
-        self.epsilon_min = 0.1
-        self.ls = learning_start
-        self.epsilon_const = self.ls+1000
-        self.epi = 0
+        self.epsilon_min = 0.01
+        self.epsilon_decay = 0.995
         self.learning_rate = lr
         self.tau = tau
         self.l1_units = l1_units
         self.l2_units = l2_units
         self.l3_units = l3_units
+        random.seed(rnd_seed)
 
         self.model, self.init_weights = self.create_model()
         self.target_model, self.target_init_weights = self.create_model()
@@ -50,7 +49,8 @@ class Agent:
         return model, init_weights
 
     def act(self, state):
-        self.xplr()
+        self.epsilon *= self.epsilon_decay
+        self.epsilon = max(self.epsilon_min, self.epsilon)
         if np.random.random() < self.epsilon:
             return np.random.choice(self.actions)
         return self.model.predict(state)[0]
@@ -101,4 +101,3 @@ class Agent:
             self.target_model.set_weights(self.target_init_weights)
         self.memory = Memory(self.buffer_size)
         self.epsilon = 1.0
-        self.epi = 0
