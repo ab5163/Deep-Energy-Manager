@@ -11,9 +11,9 @@ Deep Energy Manager (DEM) is a model-free reinforcement learning (RL) agent for 
 ## How to run
 
 ## Performance
-DEM Day 1 control policy:
+DEM Day 1 control policy:\n
 ![alt text](https://github.com/ab5163/Deep-Energy-Manager/blob/master/results/Day%201.png)
-DEM performance over 5 days:
+DEM performance over 5 days:\n
 ![alt text](https://github.com/ab5163/Deep-Energy-Manager/blob/master/results/Day%201.png)
 ## Acknowledgements
 DQN agent is inspired by 
