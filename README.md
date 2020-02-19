@@ -1,6 +1,6 @@
 # Deep-Energy-Manager
 ## Overview
-Deep Energy Manager is a model-free reinforcement learning (RL) agent for optimal building energy management. 
+Deep Energy Manager (DEM) is a model-free reinforcement learning (RL) agent for optimal building energy management. 
 ## Table of content
 1. `agent.py`: DQN agent
 2. `env.py`: Environment
@@ -11,7 +11,10 @@ Deep Energy Manager is a model-free reinforcement learning (RL) agent for optima
 ## How to run
 
 ## Performance
-![alt text](https://github.com/ab5163/Deep-Energy-Manager/issues/1#issue-567834862)
+DEM Day 1 control policy:
+![alt text](https://github.com/ab5163/Deep-Energy-Manager/blob/master/results/Day%201.png)
+DEM performance over 5 days:
+![alt text](https://github.com/ab5163/Deep-Energy-Manager/blob/master/results/Day%201.png)
 ## Acknowledgements
 DQN agent is inspired by 
 * @keon
