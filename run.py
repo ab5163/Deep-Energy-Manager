@@ -38,8 +38,8 @@ dt = 60*60/st # control time step [s]
 a = math.exp(-(Ra+Rm)/(Ra*Rm*Ca)*dt) # Heat pump model discretization coefficient
 b = math.exp(-1/(Rm*Cm)*dt) # Heat pump model discretization coefficient
 
-Data = pd.read_csv('/scratch/ab5163/RL/Space heating/12-2017 1-2018.csv') # import data
-Hist = pd.read_csv('/scratch/ab5163/RL/Space heating/11-2017.csv')
+Data = pd.read_csv('/scratch/ab5163/RL/Space heating/12-2019 1-2020.csv') # import data
+Hist = pd.read_csv('/scratch/ab5163/RL/Space heating/11-2019.csv')
 Data = Data.values
 Hist = Hist.values
 p24 = Data[:,1]
